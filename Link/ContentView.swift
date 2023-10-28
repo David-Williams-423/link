@@ -19,41 +19,41 @@ struct ContentView: View {
             } else {
                 greenBackground
             }
-            VStack {
-                HStack {
-                    VStack(alignment:.leading) {
-                        Text("Linking with")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Text(vm.peerDisplayName ?? "No one found yet")
-                            .font(.title)
-                    }
-                    Spacer()
-                    Button {
-                        // nothing yet
-                    } label: {
-                        Text("Cancel")
-                            .font(.footnote)
-                    }
-                }
-                Spacer()
-                Text("\(vm.distanceAway ?? 0) ft away")
-                    .font(.title)
-                Image(systemName: vm.monkeyLabel)
-                    .resizable()
-                    .rotationEffect(.degrees(Double(vm.rotationAmount ?? 0)))
-                // rotation efect does not seem to work. Need to multiply by 360?
-                   .scaledToFit()
-                   .padding()
-                   .frame(width: 150)
-                Spacer()
-                Text("Status: \(vm.informationLabel)")
-                Spacer()
-            }
-            .padding()
-            .onAppear() {
-                vm.startup()
-            }
+//            VStack {
+//                HStack {
+//                    VStack(alignment:.leading) {
+//                        Text("Linking with")
+//                            .font(.footnote)
+//                            .foregroundColor(.secondary)
+//                        Text(vm.peerDisplayName ?? "No one found yet")
+//                            .font(.title)
+//                    }
+//                    Spacer()
+//                    Button {
+//                        // nothing yet
+//                    } label: {
+//                        Text("Cancel")
+//                            .font(.footnote)
+//                    }
+//                }
+//                Spacer()
+//                Text("\(vm.distanceAway ?? 0) ft away")
+//                    .font(.title)
+//                Image(systemName: vm.monkeyLabel)
+//                    .resizable()
+//                    .rotationEffect(.degrees(Double(vm.rotationAmount ?? 0)))
+//                // rotation efect does not seem to work. Need to multiply by 360?
+//                   .scaledToFit()
+//                   .padding()
+//                   .frame(width: 150)
+//                Spacer()
+//                Text("Status: \(vm.informationLabel)")
+//                Spacer()
+//            }
+//            .padding()
+//            .onAppear() {
+//                vm.startup()
+            LoginView()
             TabBarView()
         }
     }
