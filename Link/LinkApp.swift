@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseMessaging
+import UserNotifications
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
