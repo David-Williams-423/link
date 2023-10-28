@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseMessaging
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     return true
   }
+    
+    //For notifications - do later
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
 }
 
 @main

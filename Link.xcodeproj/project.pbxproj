@@ -42,6 +42,7 @@
 		54E510722AED8E9200DA3D7E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 54E510712AED8E9200DA3D7E /* FirebaseStorage */; };
 		54E510742AED8E9200DA3D7E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 54E510732AED8E9200DA3D7E /* FirebaseStorageCombine-Community */; };
 		54E510762AED8EF500DA3D7E /* FireBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E510752AED8EF500DA3D7E /* FireBaseService.swift */; };
+		54E5107A2AED9F6D00DA3D7E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E510792AED9F6D00DA3D7E /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		38F652332AED9DFD00349F5A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		54E5103C2AED8DDF00DA3D7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54E510752AED8EF500DA3D7E /* FireBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseService.swift; sourceTree = "<group>"; };
+		54E510792AED9F6D00DA3D7E /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				38F6521E2AED773500349F5A /* Assets.xcassets */,
 				38F652202AED773500349F5A /* Preview Content */,
 				54E510752AED8EF500DA3D7E /* FireBaseService.swift */,
+				54E510792AED9F6D00DA3D7E /* NotificationManager.swift */,
 			);
 			path = Link;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				38F652302AED9DD300349F5A /* User.swift in Sources */,
 				38F652342AED9DFD00349F5A /* UserService.swift in Sources */,
 				54E510762AED8EF500DA3D7E /* FireBaseService.swift in Sources */,
+				54E5107A2AED9F6D00DA3D7E /* NotificationManager.swift in Sources */,
 				38F6521D2AED773300349F5A /* ContentView.swift in Sources */,
 				38F6521B2AED773300349F5A /* LinkApp.swift in Sources */,
 			);
