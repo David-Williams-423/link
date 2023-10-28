@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
+import Observation
 
 struct ContentView: View {
+    
+    var niDelegate = NIService()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(niDelegate.peerDisplayName ?? "No one found yet")
+            Text(niDelegate.informationLabel)
+            Text(niDelegate.monkeyLabel)
+                .rotationEffect(.degrees(Double(niDelegate.rotationAmount ?? 0)))
+            Text("\(niDelegate.distanceAway ?? 0)")
         }
         .padding()
+        .onAppear() {
+            niDelegate.startup()
+        }
     }
 }
 
