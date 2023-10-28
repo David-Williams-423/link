@@ -37,103 +37,6 @@ class NIService: NSObject, NISessionDelegate {
     var rotationAmount: Float?
     var distanceAway: Float?
     
-    private func animate(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
-        let azimuth = peer.direction.map(azimuth(from:))
-        let elevation = peer.direction.map(elevation(from:))
-
-        // If the app transitions from unavailable, present the app's display
-        // and hide the user instructions.
-//        if currentState == .unknown && nextState != .unknown {
-//            monkeyLabel.alpha = 1.0
-//            centerInformationLabel.alpha = 0.0
-//            detailContainer.alpha = 1.0
-//        }
-//        
-//        if nextState == .unknown {
-//            monkeyLabel.alpha = 0.0
-//            centerInformationLabel.alpha = 1.0
-//            detailContainer.alpha = 0.0
-//            updateInformationLabel(description: "Unknown Location")
-//        }
-//        
-//        if nextState == .outOfFOV || nextState == .unknown {
-//            detailAngleInfoView.alpha = 0.0
-//        } else {
-//            detailAngleInfoView.alpha = 1.0
-//        }
-        
-        // Set the app's display based on peer state.
-        switch nextState {
-        case .closeUpInFOV:
-            monkeyLabel = "🙉"
-        case .notCloseUpInFOV:
-            monkeyLabel = "🙈"
-        case .outOfFOV:
-            monkeyLabel = "🙊"
-        case .unknown:
-            monkeyLabel = ""
-        }
-        distanceAway = peer.distance
-//        if peer.distance != nil {
-//            detailDistanceLabel = String(format: "%0.2f m", peer.distance!)
-//        }
-        
-//        monkeyLabel.transform = CGAffineTransform(rotationAngle: CGFloat(azimuth ?? 0.0))
-        rotationAmount = azimuth
-        // Don't update visuals if the peer device is unavailable or out of the
-        // U1 chip's field of view.
-        if nextState == .outOfFOV || nextState == .unknown {
-            return
-        }
-        
-//        if elevation != nil {
-//            if elevation! < 0 {
-//                detailDownArrow.alpha = 1.0
-//                detailUpArrow.alpha = 0.0
-//            } else {
-//                detailDownArrow.alpha = 0.0
-//                detailUpArrow.alpha = 1.0
-//            }
-//            
-//            if isPointingAt(elevation!) {
-//                detailElevationLabel.alpha = 1.0
-//            } else {
-//                detailElevationLabel.alpha = 0.5
-//            }
-//            detailElevationLabel.text = String(format: "% 3.0f°", elevation!.radiansToDegrees)
-//        }
-        
-//        if azimuth != nil {
-//            if isPointingAt(azimuth!) {
-//                detailAzimuthLabel.alpha = 1.0
-//                detailLeftArrow.alpha = 0.25
-//                detailRightArrow.alpha = 0.25
-//            } else {
-//                detailAzimuthLabel.alpha = 0.5
-//                if azimuth! < 0 {
-//                    detailLeftArrow.alpha = 1.0
-//                    detailRightArrow.alpha = 0.25
-//                } else {
-//                    detailLeftArrow.alpha = 0.25
-//                    detailRightArrow.alpha = 1.0
-//                }
-//            }
-//            detailAzimuthLabel.text = String(format: "% 3.0f°", azimuth!.radiansToDegrees)
-//        }
-    }
-    
-    func updateVisualization(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
-        // Invoke haptics on "peekaboo" or on the first measurement.
-        if currentState == .notCloseUpInFOV && nextState == .closeUpInFOV || currentState == .unknown {
-            impactGenerator.impactOccurred()
-        }
-
-        // Animate into the next visuals.
-        UIView.animate(withDuration: 0.3, animations: {
-            self.animate(from: currentState, to: nextState, with: peer)
-        })
-    }
-    
     func startup() {
         // Create the NISession.
         session = NISession()
@@ -319,8 +222,6 @@ class NIService: NSObject, NISessionDelegate {
         connectedPeer = peer
         peerDisplayName = peer.displayName
 
-//        centerInformationLabel.text = peerDisplayName
-//        detailDeviceNameLabel.text = peerDisplayName
     }
 
     func disconnectedFromPeer(peer: MCPeerID) {
@@ -386,5 +287,43 @@ class NIService: NSObject, NISessionDelegate {
         }
 
         return .outOfFOV
+    }
+    
+    private func animate(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
+        let azimuth = peer.direction.map(azimuth(from:))
+        let elevation = peer.direction.map(elevation(from:))
+
+        
+        // Set the app's display based on peer state.
+        switch nextState {
+        case .closeUpInFOV:
+            monkeyLabel = "🙉"
+        case .notCloseUpInFOV:
+            monkeyLabel = "🙈"
+        case .outOfFOV:
+            monkeyLabel = "🙊"
+        case .unknown:
+            monkeyLabel = ""
+        }
+        distanceAway = peer.distance
+        rotationAmount = azimuth
+        // Don't update visuals if the peer device is unavailable or out of the
+        // U1 chip's field of view.
+        if nextState == .outOfFOV || nextState == .unknown {
+            return
+        }
+        
+    }
+    
+    func updateVisualization(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
+        // Invoke haptics on "peekaboo" or on the first measurement.
+        if currentState == .notCloseUpInFOV && nextState == .closeUpInFOV || currentState == .unknown {
+            impactGenerator.impactOccurred()
+        }
+
+        // Animate into the next visuals.
+        UIView.animate(withDuration: 0.3, animations: {
+            self.animate(from: currentState, to: nextState, with: peer)
+        })
     }
 }
