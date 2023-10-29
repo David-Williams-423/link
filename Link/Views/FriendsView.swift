@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FriendsView: View {
-    @Binding var selectedTab: Tabs
+    @Binding var currentScreen: Screen
     @StateObject var vm = FriendsViewModel()
     var body: some View {
         VStack {
@@ -38,7 +38,11 @@ struct FriendsView: View {
                     ForEach(vm.friendsList) { friend in
                         VStack {
                             Button {
-                                selectedTab = .link
+                                .onTapGesture {
+                                withAnimation {
+                                    currentScreen = .link
+                                }
+                            }
                             } label: {
                                 HStack {
                                     Image(friend.profilePictureURL ?? "") //ask about profile pics
@@ -81,7 +85,6 @@ struct SettingView: View {
     var body: some View {
         VStack {
             Text("Settings")
-            TabBarView(selectedTab: $selectedTab)
         }
     }
 }

@@ -44,7 +44,7 @@ struct TabBarView: View {
             }
             .padding()
             .background(.thinMaterial)
-            .cornerRadius(15.0)
+            .cornerRadius(40.0)
             
         }
         .padding()
@@ -57,7 +57,7 @@ struct TabViewButton: View {
     var isActive: Bool
     var body: some View {
         Image(systemName: image)
-            .foregroundColor(.black)
+            .foregroundColor(.white)
     }
 }
 

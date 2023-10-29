@@ -17,6 +17,10 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
     enum DistanceDirectionState {
         case closeUpInFOV, notCloseUpInFOV, outOfFOV, unknown
     }
+    
+    var inSession: Bool {
+        connectedPeer != nil
+    }
 
 
     var session: NISession?
@@ -36,6 +40,25 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
     var monkeyLabel = ""
     var rotationAmount: Float?
     var distanceAway: Float?
+    var feetAway: Float? {
+        if let distanceAway = distanceAway {
+            return distanceAway * 3.28084
+        }
+        return nil
+    }
+    
+    var feetString: String? {
+        guard let feet = feetAway else { return nil }
+        
+        return feet < 10 ? String(format: "%.1f", feet) : String(format: "%.0f", feet)
+    }
+    
+    func scaleForCircleBasedOnDistance() -> CGFloat {
+            guard let feetAway = feetAway else { return 1.0 }
+            let scale = 0.7 + 0.3 * CGFloat(feetAway / 0.5)
+            return min(max(scale, 0.7), 1.0) // Clamp the value between 0.7 and 1.0
+        }
+
     
     func startup() {
         // Create the NISession.
@@ -197,9 +220,9 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         if mpc == nil {
             // Prevent Simulator from finding devices.
             #if targetEnvironment(simulator)
-            mpc = MPCSession(service: "nisample", identity: "com.example.apple-samplecode.simulator.peekaboo-nearbyinteraction", maxPeers: 1)
+            mpc = MPCSession(service: "nisample", identity: "hacknc.link.simulator", maxPeers: 1)
             #else
-            mpc = MPCSession(service: "nisample", identity: "com.example.apple-samplecode.peekaboo-nearbyinteraction", maxPeers: 1)
+            mpc = MPCSession(service: "nisample", identity: "hacknc.link", maxPeers: 1)
             #endif
             mpc?.peerConnectedHandler = connectedToPeer
             mpc?.peerDataHandler = dataReceivedHandler
@@ -296,22 +319,9 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         let azimuth = peer.direction.map(azimuth(from:))
         let elevation = peer.direction.map(elevation(from:))
 
-        
-        // Set the app's display based on peer state.
-//        switch nextState {
-//        case .closeUpInFOV:
-//            monkeyLabel = "🙉"
-//        case .notCloseUpInFOV:
-//            monkeyLabel = "🙈"
-//        case .outOfFOV:
-//            monkeyLabel = "🙊"
-//        case .unknown:
-//            monkeyLabel = ""
-//        }
-        
         switch nextState {
         case .closeUpInFOV:
-            monkeyLabel = "arrow.down.to.line"
+            monkeyLabel = "arrow.up"
         case .notCloseUpInFOV:
             monkeyLabel = "arrow.up"
         case .outOfFOV:
@@ -330,12 +340,12 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
     }
     
     func updateVisualization(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
-        // Invoke haptics on "peekaboo" or on the first measurement.
-        if currentState == .notCloseUpInFOV && nextState == .closeUpInFOV || currentState == .unknown {
+        // Invoke haptics when person is in FOV
+        if currentState == .outOfFOV && (nextState == .closeUpInFOV || nextState == .notCloseUpInFOV)  {
             impactGenerator.impactOccurred()
         }
-
         // Animate into the next visuals.
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.animate(from: currentState, to: nextState, with: peer)
         })

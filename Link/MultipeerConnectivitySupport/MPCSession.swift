@@ -27,18 +27,21 @@ class MPCSession: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     var peerDisconnectedHandler: ((MCPeerID) -> Void)?
     private let serviceString: String
     private let mcSession: MCSession
-    private let localPeerID = MCPeerID(displayName: UIDevice.current.name)
+    private let localPeerID = MCPeerID(displayName: (FireBaseService.shared.currentUser?.firstName ?? "Bob") + " " + (FireBaseService.shared.currentUser?.lastName ?? "Jones"))
     private let mcAdvertiser: MCNearbyServiceAdvertiser
     private let mcBrowser: MCNearbyServiceBrowser
     private let identityString: String
     private let maxNumPeers: Int
-
+    private var userIdToLinkWith: String?
+    
+   
     init(service: String, identity: String, maxPeers: Int) {
         serviceString = service
         identityString = identity
+        userIdToLinkWith = "id"
         mcSession = MCSession(peer: localPeerID, securityIdentity: nil, encryptionPreference: .required)
         mcAdvertiser = MCNearbyServiceAdvertiser(peer: localPeerID,
-                                                 discoveryInfo: [MPCSessionConstants.kKeyIdentity: identityString],
+                                                 discoveryInfo: [MPCSessionConstants.kKeyIdentity: identityString, "id": FireBaseService.shared.currentUser?.id ?? "id"],
                                                  serviceType: serviceString)
         mcBrowser = MCNearbyServiceBrowser(peer: localPeerID, serviceType: serviceString)
         maxNumPeers = maxPeers
@@ -49,6 +52,10 @@ class MPCSession: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         mcBrowser.delegate = self
     }
 
+    func setUserIdToLinkWith(id: String) {
+        userIdToLinkWith = id
+    }
+    
     // MARK: - `MPCSession` public methods.
     func start() {
         mcAdvertiser.startAdvertisingPeer()
@@ -147,7 +154,10 @@ class MPCSession: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         guard let identityValue = info?[MPCSessionConstants.kKeyIdentity] else {
             return
         }
-        if identityValue == identityString && mcSession.connectedPeers.count < maxNumPeers {
+        guard let id = info?["id"] else {
+            return
+        }
+        if identityValue == identityString && id == userIdToLinkWith && mcSession.connectedPeers.count < maxNumPeers {
             browser.invitePeer(peerID, to: mcSession, withContext: nil, timeout: 10)
         }
     }
