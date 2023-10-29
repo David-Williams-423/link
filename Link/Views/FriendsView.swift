@@ -33,10 +33,30 @@ struct FriendsView: View {
             }
             .padding(.bottom, 20)
             
+            HStack {
+                TextField("Search...", text: $vm.searchTerm)
+                    .padding(8)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
+                    .onChange(of: vm.searchTerm) { newValue in
+                        vm.searchFriends(searchTerm: newValue)
+                    }
+
+                Button(action: {
+                    vm.searchTerm = ""
+                    vm.searchResults = [] // Clear search results
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .padding(.horizontal, 8)
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding(.horizontal, 20)
+            
             Spacer()
             ScrollView {
                 VStack {
-                    ForEach(vm.friendsList) { friend in
+                    ForEach(vm.searchTerm.isEmpty ? vm.friendsList : vm.searchResults) { friend in
                         VStack {
                             HStack {
                                 Image(friend.profilePictureURL ?? "") //ask about profile pics
