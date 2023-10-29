@@ -34,12 +34,6 @@ struct TabBarView: View {
                         .foregroundColor(selectedTab == .link ? .white : .black)
                 }
                 Spacer()
-//                Button(action: {
-//                    selectedTab = .settings
-//                }) {
-//                    Image(systemName: "gear")
-//                        .foregroundColor(selectedTab == .settings ? .white : .black)
-//                }
                 Spacer()
             }
             .padding()

@@ -95,7 +95,7 @@ struct RegisterView: View {
                             .padding(.bottom, 7)
                             .padding(.trailing, 10)
                             .padding(.leading, 10)
-                            .background(.thinMaterial)
+                            .background(.green)
                             .cornerRadius(10)
                     }
                     .padding()

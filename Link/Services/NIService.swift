@@ -88,7 +88,7 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
             }
         } else {
 //            updateInformationLabel(description: "Discovering Peer ...")
-            updateInformationLabel(description: "Connected to Peer")
+            updateInformationLabel(description: "Discovering Peer")
             startupMPC()
 
             // Set the display state.
@@ -244,7 +244,7 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         if !sharedTokenWithPeer {
             shareMyDiscoveryToken(token: myToken)
         }
-
+        updateInformationLabel(description: "Connection Found")
         connectedPeer = peer
         peerDisplayName = peer.displayName
 

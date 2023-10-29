@@ -19,7 +19,6 @@ struct ContentView: View {
             switch currentScreen {
             case .link:
                 LinkView(currentScreen: $currentScreen, friendID: id)
-//                    .transition(.opacity)
             case .friends:
                 FriendsView(currentScreen: $currentScreen, userID: $id)
             }

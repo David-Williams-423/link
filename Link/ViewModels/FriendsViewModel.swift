@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 class FriendsViewModel: ObservableObject {
-    private let service = FireBaseService()
+    private let service = FireBaseService.shared
     @Published var friendRequestList: [FriendRequest] = []
     @Published var friendsList: [User] = []
     @Published var searchTerm: String = ""

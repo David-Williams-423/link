@@ -29,25 +29,69 @@ struct LinkView: View {
     }
 
     var backgroundColor: Color {
-        return notClose ? .gray : .green
+        return notClose ? .white.opacity(0) : .green
     }
+    
+    var linkingInfo: some View {
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(vm.peerDisplayName ?? "No one found yet")
+                        .font(.title)
+                }
+                Spacer()
+                Button {
+                    withAnimation {
+                        currentScreen = .friends
+                    }
+                } label: {
+                    Image(systemName: "x.circle.fill")
+                        .imageScale(.large)
+                        .fontDesign(.rounded)
+                        .opacity(0.5)
+                }
+                .buttonStyle(.plain)
+            }
 
-    var body: some View {
+            Text("\(vm.feetString ?? "0") ft away")
+                .font(.title)
+                .padding(50)
+            Spacer()
+            // Arrow animation
+            ZStack {
+                Image(systemName: "arrow.up")
+                    .resizable()
+                    .rotationEffect(.degrees(Double(vm.rotationAmount ?? 0)))
+                    .scaledToFit()
+                    .padding()
+                    .frame(width: 150)
+                    .scaleEffect(notClose ? 1 : 0)
+                    .opacity(notClose ? 1 : 0)
+                    .animation(.easeInOut, value: notClose)
+                    .animation(.easeInOut, value: vm.rotationAmount)
+
+                Image(systemName: "circle.fill")
+                    .resizable()
+                    .foregroundStyle(.regularMaterial)
+                    .shadow(radius: 10)
+                    .padding()
+                    .scaledToFit()
+                    .frame(width: 250)
+                    .scaleEffect(circleScale)
+                    .animation(.easeInOut, value: circleScale)
+            }
+
+            Spacer()
+            StatusIndicator(isConnected: vm.inSession)
+            Spacer()
+        }
+        .padding()
+    }
+    
+    var loading: some View {
         ZStack {
-            // make 5 ft instead - small number for testing
-
-            ColorBackground(color: backgroundColor)
-                .animation(.easeInOut, value: backgroundColor)
-
             VStack {
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text("Linking with")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Text(vm.peerDisplayName ?? "No one found yet")
-                            .font(.title)
-                    }
                     Spacer()
                     Button {
                         withAnimation {
@@ -55,48 +99,42 @@ struct LinkView: View {
                         }
                     } label: {
                         Image(systemName: "x.circle.fill")
+                            .imageScale(.large)
+                            .fontDesign(.rounded)
+                            .opacity(0.5)
                     }
                     .buttonStyle(.plain)
                 }
-
-                Text("\(vm.feetString ?? "0") ft away")
-                    .font(.title)
-                    .padding(50)
                 Spacer()
-                // Arrow animation
-                ZStack {
-                    Image(systemName: "arrow.up")
-                        .resizable()
-                        .rotationEffect(.degrees(Double(vm.rotationAmount ?? 0)))
-                        .scaledToFit()
-                        .padding()
-                        .frame(width: 150)
-                        .scaleEffect(notClose ? 1 : 0)
-                        .opacity(notClose ? 1 : 0)
-                        .animation(.easeInOut, value: notClose)
-                        .animation(.easeInOut, value: vm.rotationAmount)
-
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .foregroundStyle(.regularMaterial)
-                        .shadow(radius: 10)
-                        .padding()
-                        .scaledToFit()
-                        .frame(width: 250)
-                        .scaleEffect(circleScale)
-                        .animation(.easeInOut, value: circleScale)
-                }
-
-                Spacer()
-                StatusIndicator(isConnected: vm.inSession)
-                Spacer()
-                Text("Status: \(vm.informationLabel)")
             }
-            .padding()
-            .onAppear(){
-                vm.startup()
-                vm.mpc?.setUserIdToLinkWith(id: friendID)
+            VStack {
+                Text("Looking for link...")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+                    .padding(.bottom)
+                ProgressView()
+                    .controlSize(.extraLarge)
             }
+        }
+    }
+    var body: some View {
+        ZStack {
+            // make 5 ft instead - small number for testing
+
+            ColorBackground(color: backgroundColor)
+                .animation(.easeInOut, value: backgroundColor)
+            
+            if vm.sharedTokenWithPeer {
+                linkingInfo
+            } else {
+                loading
+            }
+            
+            }
+        .onAppear {
+            vm.startup()
+            vm.mpc?.setUserIdToLinkWith(id: friendID)
         }
     }
 }

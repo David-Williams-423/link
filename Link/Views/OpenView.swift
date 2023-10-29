@@ -17,7 +17,7 @@ struct OpenView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                greenBackground
+//                greenBackground
                 VStack {
                     Spacer()
                     HStack{
@@ -70,8 +70,9 @@ struct OpenView: View {
                                 .padding(.bottom, 7)
                                 .padding(.trailing, 10)
                                 .padding(.leading, 10)
-                                .background(.thinMaterial)
+                                .background(.green)
                                 .cornerRadius(10)
+                                .buttonStyle(.plain)
                         }
                         .padding()
                     }
@@ -81,9 +82,10 @@ struct OpenView: View {
                         label: {
                             Text("Don't have an account? **Sign Up** ")
                                 .font(.footnote)
-                                .foregroundColor(.black)
+                                .foregroundStyle(.secondary)
                         }
                     )
+                    .buttonStyle(.plain)
                 }
             }
         }
