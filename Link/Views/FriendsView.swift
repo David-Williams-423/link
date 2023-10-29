@@ -27,7 +27,7 @@ struct FriendsView: View {
                     isFriendRequestsViewPresented = true
                 } label: {
                     Image(systemName: "tray.and.arrow.down.fill")
-                        .foregroundColor(.black)
+                        .foregroundStyle(.green)
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding(.trailing, 20)
@@ -68,7 +68,7 @@ struct FriendsView: View {
                                     .clipShape(Circle())
                                 
                                 Text("\(friend.firstName) \(friend.lastName)")
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(.primary)
                                     .font(.title2)
                                     .padding(.leading, 10)
                                 
@@ -80,7 +80,7 @@ struct FriendsView: View {
                                     .padding(.trailing, 20)
                             }
                             .frame(minHeight: 75)
-                            .background(Color.white)
+//                            .background(Color.white)
                             .cornerRadius(8)
                             .onTapGesture {
                                 withAnimation {
