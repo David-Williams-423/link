@@ -14,17 +14,28 @@ struct ContentView: View {
     @State var currentScreen: Screen = .friends
     @StateObject var LinkVM = NIService()
     var body: some View {
-        VStack {
-            switch currentScreen {
-            case .link:
-                LinkView(currentScreen: $currentScreen, vm: LinkVM)
-            case .friends:
-                FriendsView(currentScreen: $currentScreen)
+        NavigationStack {
+            VStack {
+                switch currentScreen {
+                case .link:
+                    LinkView(currentScreen: $currentScreen, vm: LinkVM)
+                case .friends:
+                    FriendsView(currentScreen: $currentScreen)
+                        
+                }
+            }
+            .toolbar {
+                ToolbarItem {
+                    NavigationLink(destination: FriendRequestsView(), label: {
+                        Text("friends")
+                    })
+                }
+            }
+            .onAppear() {
+                LinkVM.startup()
             }
         }
-        .onAppear() {
-            LinkVM.startup()
-        }
+        
     }
 }
 
