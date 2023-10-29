@@ -65,6 +65,6 @@ struct LinkView: View {
       }
 }
 
-//#Preview {r
-//    LinkView()
-//}
+#Preview {
+    LinkView()
+}
