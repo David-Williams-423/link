@@ -238,7 +238,8 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         }
 
         if connectedPeer != nil {
-            fatalError("Already connected to a peer.")
+            print("Already connected to a peer.")
+            return
         }
 
         if !sharedTokenWithPeer {
