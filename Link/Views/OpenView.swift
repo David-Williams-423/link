@@ -23,13 +23,14 @@ struct OpenView: View {
                     HStack{
                         Text("Link")
                             .font(.system(size: 70))
+                            .fontDesign(.rounded)
                            .frame(height: 70)
                            .padding()
                         Image(systemName: "link")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 80)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.green)
                         
                     }
                     
@@ -48,7 +49,6 @@ struct OpenView: View {
                             isActive: $navigateToNextScreen,
                             label: {
                                 EmptyView()
-//
                             }
                         )
                         Button(action: {

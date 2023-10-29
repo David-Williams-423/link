@@ -23,6 +23,7 @@ struct RegisterView: View {
             VStack {
                 Text("Create Account")
                     .font(.title)
+                    .fontDesign(.rounded)
                 TextField("First Name", text: $firstName)
                     .padding(.leading)
                 Divider()
@@ -71,9 +72,9 @@ struct RegisterView: View {
                         isActive: $navigateToNextScreen,
                         label: {
                             EmptyView()
-//
                         }
                     )
+                    .buttonStyle(.plain)
                     .padding()
                     Button(action: {
                         Task {
