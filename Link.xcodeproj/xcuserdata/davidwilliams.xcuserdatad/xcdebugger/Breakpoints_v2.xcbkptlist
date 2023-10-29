@@ -109,7 +109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
-            landmarkName = "fetchUser()"
+            landmarkName = "searchUsersByFirstName(searchTerm:)"
             landmarkType = "7">
             <Locations>
                <Location

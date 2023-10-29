@@ -25,7 +25,7 @@ struct LinkView: View {
         if notClose {
             return 0.0
         }
-        return CGFloat(feet * 2 + 0.5)
+        return CGFloat(feet/10 * 2 + 0.5)
     }
 
     var backgroundColor: Color {
@@ -46,11 +46,11 @@ struct LinkView: View {
                     }
                 } label: {
                     Image(systemName: "x.circle.fill")
+                        .foregroundStyle(.gray)
                         .imageScale(.large)
                         .fontDesign(.rounded)
                         .opacity(0.5)
                 }
-                .buttonStyle(.plain)
             }
 
             Text("\(vm.feetString ?? "0") ft away")
