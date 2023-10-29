@@ -177,12 +177,13 @@ class FireBaseService {
         try await self.db.collection("users").document(userID).updateData(["status": status.rawValue])
     }
     
-    func getAllUsers() async throws -> [User] {
+    func getAllUsers(excludingUserID userIDToExclude: String?) async throws -> [User] {
         let snapshot = try await db.collection("users").getDocuments()
         let users = snapshot.documents.compactMap { document -> User? in
             let user = try? document.data(as: User.self)
             return user
         }
-        return users
+        return users.filter { $0.id != userIDToExclude ?? "" }
     }
+
 }

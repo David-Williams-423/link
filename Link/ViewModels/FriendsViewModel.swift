@@ -39,7 +39,7 @@ extension FriendsViewModel {
     func getAllUsers() {
         Task {
             do {
-                self.friendsList = try await service.getAllUsers()
+                self.friendsList = try await service.getAllUsers(excludingUserID: service.currentUser?.id)
             } catch {
                 print(error)
             }
