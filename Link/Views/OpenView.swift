@@ -17,7 +17,6 @@ struct OpenView: View {
     var body: some View {
         NavigationView {
             ZStack {
-//                greenBackground
                 VStack {
                     Spacer()
                     HStack{
@@ -89,10 +88,6 @@ struct OpenView: View {
                 }
             }
         }
-    }
-    var greenBackground: some View {
-          LinearGradient(colors: [.white.opacity(0.2), .green.opacity(0.9)], startPoint: .top, endPoint: .bottom)
-              .ignoresSafeArea()
     }
 }
 
