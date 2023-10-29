@@ -29,7 +29,7 @@ struct LinkView: View {
     }
 
     var backgroundColor: Color {
-        return notClose ? .gray : .green
+        return notClose ? .white.opacity(0) : .green
     }
     
     var linkingInfo: some View {
@@ -89,14 +89,33 @@ struct LinkView: View {
     }
     
     var loading: some View {
-        VStack {
-            Text("Looking for link...")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .fontDesign(.rounded)
-                .padding(.bottom)
-            ProgressView()
-                .controlSize(.extraLarge)
+        ZStack {
+            VStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            currentScreen = .friends
+                        }
+                    } label: {
+                        Image(systemName: "x.circle.fill")
+                            .imageScale(.large)
+                            .fontDesign(.rounded)
+                            .opacity(0.5)
+                    }
+                    .buttonStyle(.plain)
+                }
+                Spacer()
+            }
+            VStack {
+                Text("Looking for link...")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+                    .padding(.bottom)
+                ProgressView()
+                    .controlSize(.extraLarge)
+            }
         }
     }
     var body: some View {
@@ -111,11 +130,11 @@ struct LinkView: View {
             } else {
                 loading
             }
-            .padding()
-            .onAppear(){
-                vm.startup()
-                vm.mpc?.setUserIdToLinkWith(id: friendID)
+            
             }
+        .onAppear {
+            vm.startup()
+            vm.mpc?.setUserIdToLinkWith(id: friendID)
         }
     }
 }
