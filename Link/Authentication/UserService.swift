@@ -10,22 +10,6 @@ import Firebase
 
 class UserService {
     
-    public static var shared = UserService()
-    
-    func signIn(withEmail email: String, password: String) async throws {
-        
-    }
-    
-    func createUser(user: User) async throws {
-        
-    }
-    
-    func signOut() {
-        
-    }
-    
-    func fetchUser() async {
-        
-    }
+
     
 }
