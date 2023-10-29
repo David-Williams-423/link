@@ -14,19 +14,20 @@ struct OpenView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                greenBackground
+//                greenBackground
                 VStack {
                     Spacer()
                     HStack{
                         Text("Link")
                             .font(.system(size: 70))
+                            .fontDesign(.rounded)
                            .frame(height: 70)
                            .padding()
                         Image(systemName: "link")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 80)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.green)
                         
                     }
                     
@@ -49,16 +50,16 @@ struct OpenView: View {
 //                                }) {
                                     Text("Login")
                                         .font(.footnote)
-                                        .foregroundColor(.black)
                                         .padding(.top, 7)
                                         .padding(.bottom, 7)
                                         .padding(.trailing, 10)
                                         .padding(.leading, 10)
-                                        .background(.thinMaterial)
+                                        .background(.green)
                                         .cornerRadius(10)
 //                                }
                             }
                         )
+                        .buttonStyle(.plain)
                         .padding()
                     }
                     Spacer()

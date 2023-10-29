@@ -21,6 +21,7 @@ struct RegisterView: View {
             VStack {
                 Text("Create Account")
                     .font(.title)
+                    .fontDesign(.rounded)
                 TextField("First Name", text: $firstName)
                     .padding(.leading)
                 Divider()
@@ -73,16 +74,16 @@ struct RegisterView: View {
                             //                        }) {
                             Text("Sign Up")
                                 .font(.footnote)
-                                .foregroundColor(.black)
                                 .padding(.top, 7)
                                 .padding(.bottom, 7)
                                 .padding(.trailing, 10)
                                 .padding(.leading, 10)
-                                .background(.thinMaterial)
+                                .background(.green)
                                 .cornerRadius(10)
                         }
                         //                    }
                     )
+                    .buttonStyle(.plain)
                     .padding()
 
                 }
