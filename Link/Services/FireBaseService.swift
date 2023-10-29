@@ -93,8 +93,10 @@ class FireBaseService {
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let snapshot = try? await db.collection("users").document(uid).getDocument() else { return }
-        self.currentUser = try? snapshot.data(as: User.self)
+        guard let data = snapshot.data() else { return }
+        self.currentUser = User(id: snapshot.documentID, documentData: data)
     }
+
     
     // MARK: - Friends
 
@@ -164,7 +166,7 @@ class FireBaseService {
         var friends: [User] = []
         for friendID in friendIDs {
             let friendDoc = try await db.collection("users").document(friendID).getDocument()
-            if let friendData = friendDoc.data(), let friend = User(documentData: friendData) {
+            if let friendData = friendDoc.data(), let friend = User(id: friendID, documentData: friendData) {
                 friends.append(friend)
             }
         }

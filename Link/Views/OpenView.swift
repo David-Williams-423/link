@@ -11,7 +11,7 @@ struct OpenView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var navigateToNextScreen = false
-    var service = FireBaseService()
+    var service = FireBaseService.shared
     
     
     var body: some View {
