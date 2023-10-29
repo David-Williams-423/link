@@ -9,7 +9,7 @@ import Observation
 import SwiftUI
 
 struct LinkView: View {
-    @Binding var selectedTab: Tabs
+    @Binding var currentScreen: Screen
     @StateObject var vm: NIService
 
     var notClose: Bool {
@@ -48,6 +48,14 @@ struct LinkView: View {
                             .font(.title)
                     }
                     Spacer()
+                    Button {
+                        withAnimation {
+                            currentScreen = .friends
+                        }
+                    } label: {
+                        Image(systemName: "x.circle.fill")
+                    }
+                    .buttonStyle(.plain)
                 }
 
                 Text("\(vm.feetString ?? "0") ft away")
@@ -84,7 +92,6 @@ struct LinkView: View {
                 Text("Status: \(vm.informationLabel)")
             }
             .padding()
-            TabBarView(selectedTab: $selectedTab)
         }
     }
 }
@@ -124,5 +131,5 @@ struct ColorBackground: View {
 }
 
 #Preview {
-    LinkView(selectedTab: .constant(Tabs.friends), vm: .init())
+    LinkView(currentScreen: .constant(.link), vm: .init())
 }
