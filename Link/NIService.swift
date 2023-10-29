@@ -11,7 +11,7 @@ import NearbyInteraction
 import Observation
 
 @Observable
-class NIService: NSObject, NISessionDelegate {
+class NIService: NSObject, NISessionDelegate, ObservableObject {
     let nearbyDistanceThreshold: Float = 0.3
 
     enum DistanceDirectionState {
@@ -50,7 +50,8 @@ class NIService: NSObject, NISessionDelegate {
         // If `connectedPeer` exists, share the discovery token, if needed.
         if connectedPeer != nil && mpc != nil {
             if let myToken = session?.discoveryToken {
-                updateInformationLabel(description: "Initializing ...")
+//                updateInformationLabel(description: "Initializing ...")
+                    updateInformationLabel(description: "Initializing Connection to Peer")
                 if !sharedTokenWithPeer {
                     shareMyDiscoveryToken(token: myToken)
                 }
@@ -63,7 +64,8 @@ class NIService: NSObject, NISessionDelegate {
                 fatalError("Unable to get self discovery token, is this session invalidated?")
             }
         } else {
-            updateInformationLabel(description: "Discovering Peer ...")
+//            updateInformationLabel(description: "Discovering Peer ...")
+            updateInformationLabel(description: "Connected to Peer")
             startupMPC()
 
             // Set the display state.
@@ -129,7 +131,8 @@ class NIService: NSObject, NISessionDelegate {
             if let config = session.configuration {
                 session.run(config)
             }
-            updateInformationLabel(description: "Peer Timeout")
+//            updateInformationLabel(description: "Peer Timeout")
+            updateInformationLabel(description: "Your Peer's Session Timed Out")
         default:
             fatalError("Unknown and unhandled NINearbyObject.RemovalReason")
         }
@@ -295,15 +298,26 @@ class NIService: NSObject, NISessionDelegate {
 
         
         // Set the app's display based on peer state.
+//        switch nextState {
+//        case .closeUpInFOV:
+//            monkeyLabel = "🙉"
+//        case .notCloseUpInFOV:
+//            monkeyLabel = "🙈"
+//        case .outOfFOV:
+//            monkeyLabel = "🙊"
+//        case .unknown:
+//            monkeyLabel = ""
+//        }
+        
         switch nextState {
         case .closeUpInFOV:
-            monkeyLabel = "🙉"
+            monkeyLabel = "arrow.down.to.line"
         case .notCloseUpInFOV:
-            monkeyLabel = "🙈"
+            monkeyLabel = "arrow.up"
         case .outOfFOV:
-            monkeyLabel = "🙊"
+            monkeyLabel = "arrow.up"
         case .unknown:
-            monkeyLabel = ""
+            monkeyLabel = "questionmark"
         }
         distanceAway = peer.distance
         rotationAmount = azimuth?.radiansToDegrees

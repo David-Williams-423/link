@@ -9,22 +9,26 @@ import SwiftUI
 import Observation
 
 struct ContentView: View {
-    
-    var niDelegate = NIService()
+    @State var selectedTab: Tabs = .link
+    @StateObject var LinkVM = NIService()
     var body: some View {
         VStack {
-            Text(niDelegate.peerDisplayName ?? "No one found yet")
-            Text(niDelegate.informationLabel)
-            Text(niDelegate.monkeyLabel)
-                .rotationEffect(.degrees(Double(niDelegate.rotationAmount ?? 0)))
-            Text("\(niDelegate.distanceAway ?? 0)")
+            switch selectedTab {
+            case .link:
+                LinkView(selectedTab: $selectedTab, vm: LinkVM)
+            case .friends:
+                FriendsView(selectedTab: $selectedTab)
+            case .settings:
+                SettingView(selectedTab: $selectedTab)
+            }
         }
-        .padding()
         .onAppear() {
-            niDelegate.startup()
+            LinkVM.startup()
         }
     }
 }
+
+    
 
 #Preview {
     ContentView()
