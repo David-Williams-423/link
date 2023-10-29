@@ -34,6 +34,7 @@ struct LinkApp: App {
     var body: some Scene {
         WindowGroup {
             LoadingView()
+                .preferredColorScheme(.light)
         }
     }
 }

@@ -55,9 +55,9 @@ struct LinkView: View {
             VStack {
                 Text("\(vm.feetString ?? "0") ft away")
                     .font(.title)
-                if (vm.currentDistanceDirectionState == NIService.DistanceDirectionState.outOfFOV) {
-                    Text ("Turn Around")
-                }
+//                if (vm.currentDistanceDirectionState == NIService.DistanceDirectionState.outOfFOV) {
+//                    Text ("Turn Around")
+//                }
             }
             .padding(50)
                 
