@@ -8,6 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 import FirebaseStorage
+import FirebaseAuth
 import Foundation
 
 class FireBaseService {
