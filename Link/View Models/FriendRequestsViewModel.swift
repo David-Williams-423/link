@@ -15,7 +15,7 @@ class FriendRequestsViewModel: ObservableObject {
     func fetchFriendRequests() {
         Task {
             do {
-                await firebaseService.fetchUser()
+                try await firebaseService.fetchUser()
                 if let currentUser = firebaseService.currentUser {
                     self.friendRequests = try await firebaseService.fetchFriendRequests(forUserID: currentUser.id)
                 }

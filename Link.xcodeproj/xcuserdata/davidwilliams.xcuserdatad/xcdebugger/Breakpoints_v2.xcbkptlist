@@ -107,10 +107,10 @@
             filePath = "Link/Services/FireBaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "FireBaseService"
-            landmarkType = "3">
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "fetchUser()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "5BB9BAF6-AC3F-4FEF-8B4D-027CE9D26628 - c37379db173c2c0"
@@ -257,54 +257,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A1A49B6C-7355-4ECF-AD65-DC9C723D70D3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Link/Services/FireBaseService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "fetchUser()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A1A49B6C-7355-4ECF-AD65-DC9C723D70D3 - 183fb95f7b0066a7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for Link.FireBaseService.fetchUser() async -&gt; ()"
-                  moduleName = "Link"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/Services/FireBaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "396">
-               </Location>
-               <Location
-                  uuid = "A1A49B6C-7355-4ECF-AD65-DC9C723D70D3 - 123bfa705817d4a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for Link.FireBaseService.fetchUser() async -&gt; ()"
-                  moduleName = "Link"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/Services/FireBaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "404">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FE8C013C-7E2F-46D2-9557-D5D209602BF5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -392,6 +344,237 @@
                   startingLineNumber = "54"
                   endingLineNumber = "54"
                   offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 84be46c1baa66762"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 8ab5cafb4186240f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 6d84ed076148a360"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 597fdfe64a600161"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Link/LinkApp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - fc37916b82bb9a2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - 831f88c09fc0b638"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - 2854fc8b269cd613"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - 4a2887bd278b3e98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Bool in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - 6873045dbd594d02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Bool in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - 876189cdca0e7b9e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Bool in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "57DB0920-B88E-47BC-9773-D92C58A477CC - dec570e583ccda1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Swift.Bool in Link.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/LinkApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B3AF37B-9F95-45EA-83B2-A47AE15E6382"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Link/Views/FriendsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "4B3AF37B-9F95-45EA-83B2-A47AE15E6382 - de02120c921ddcd3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt; in closure #1 (Link.User) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt;&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Link.User&gt;, Swift.String, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt;&gt;&gt; in closure #3 () -&gt; SwiftUI.VStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Link.User&gt;, Swift.String, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt;&gt;&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Link.FriendsView.body.getter : some"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/Views/FriendsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "500">
+               </Location>
+               <Location
+                  uuid = "4B3AF37B-9F95-45EA-83B2-A47AE15E6382 - 7e2849418403216c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt; in closure #1 (Link.User) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt;&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Link.User&gt;, Swift.String, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt;&gt;&gt; in closure #3 () -&gt; SwiftUI.VStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Link.User&gt;, Swift.String, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider)&gt;&gt;&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Link.FriendsView.body.getter : some"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/Views/FriendsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
