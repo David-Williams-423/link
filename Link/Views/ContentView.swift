@@ -18,12 +18,14 @@ struct ContentView: View {
             switch currentScreen {
             case .link:
                 LinkView(currentScreen: $currentScreen, vm: LinkVM)
+                    .transition(.opacity)
+                    .onAppear() {
+                        LinkVM.startup()
+                        
+                    }
             case .friends:
                 FriendsView(currentScreen: $currentScreen)
             }
-        }
-        .onAppear() {
-            LinkVM.startup()
         }
     }
 }

@@ -92,6 +92,7 @@ struct LinkView: View {
                 Text("Status: \(vm.informationLabel)")
             }
             .padding()
+//            TabBarView(selectedTab: $selectedTab)
         }
     }
 }
