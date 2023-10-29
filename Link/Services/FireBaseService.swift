@@ -24,7 +24,7 @@ class FireBaseService {
         self.userSession = userSession
         
         Task {
-            await fetchUser()
+            try? await fetchUser()
         }
     }
     
@@ -43,7 +43,7 @@ class FireBaseService {
             let user = User(id: result.user.uid, firstName: firstName, lastName: lastName, email: email, profilePictureURL: profilePictureURL)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await self.db.collection("users").document(user.id).setData(encodedUser)
-            await self.fetchUser()
+            try await self.fetchUser()
         } catch {
             print("DEBUG: Failed to create user with error \(error.localizedDescription)")
         }
@@ -72,7 +72,7 @@ class FireBaseService {
             self.userSession = result.user
             
             Task {
-                await fetchUser()
+                try? await fetchUser()
             }
         } catch {
             print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
@@ -90,11 +90,13 @@ class FireBaseService {
         }
     }
     
-    func fetchUser() async {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        guard let snapshot = try? await db.collection("users").document(uid).getDocument() else { return }
-        guard let data = snapshot.data() else { return }
+    func fetchUser() async throws -> Bool {
+        guard let uid = Auth.auth().currentUser?.uid else { return false }
+        
+        let snapshot = try await db.collection("users").document(uid).getDocument()
+        guard let data = snapshot.data() else { return false }
         self.currentUser = User(id: snapshot.documentID, documentData: data)
+        return self.currentUser?.id != nil
     }
 
     // MARK: - Friends
@@ -185,5 +187,4 @@ class FireBaseService {
         }
         return users.filter { $0.id != userIDToExclude ?? "" }
     }
-
 }
