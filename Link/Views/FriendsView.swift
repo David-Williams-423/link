@@ -11,35 +11,60 @@ struct FriendsView: View {
     @Binding var selectedTab: Tabs
     @StateObject var vm = FriendsViewModel()
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(vm.friendsList) { friend in
-                    HStack {
-                        Image(friend.profilePictureURL ?? "") //ask about profile pics
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                        
-                        Text("\(friend.firstName) \(friend.lastName)")
-                            .font(.title2)
-                            .padding(.leading, 10)
-                        
-                        Spacer()
-                        
-                        Image(systemName: friend.status == .online ? "wifi" : "wifi.slash")
-                            .foregroundColor(friend.status == .online ? .green : .gray)
-                            .font(.caption)
+        VStack {
+            Text("Friends!")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .fontWeight(.bold)
+            
+            Spacer()
+            
+            ScrollView {
+//                VStack {
+                    ForEach(vm.friendsList) { friend in
+                        HStack {
+                            Image(friend.profilePictureURL ?? "") //ask about profile pics
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+                                .clipShape(Circle())
+                            
+                            Text("\(friend.firstName) \(friend.lastName)")
+                                .font(.title2)
+                                .padding(.leading, 10)
+                            
+                            Spacer()
+                            
+                            Image(systemName: friend.status == .online ? "wifi" : "wifi.slash")
+                                .foregroundColor(friend.status == .online ? .green : .gray)
+                                .font(.subheadline)
+                                .padding(.trailing, 20)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .overlay(
+                            Divider()
+                                .padding(.horizontal)
+                                .background(Color.gray.opacity(0.5)), alignment: .bottom
+                        )
                     }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(8)
-                    .overlay(
-                        Divider()
-                            .padding([.leading, .trailing])
-                            .background(Color.gray.opacity(0.5)), alignment: .bottom
-                    )
-                }
+//                }
             }
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(15)
+            .padding(.horizaontal, 20)
+            
+            Button {
+                
+            } label: {
+                Text("Add Friend")
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(Color.green)
+                    .cornerRadius(8)
+            }
+            TabBarView(selectedTab: $selectedTab)
         }
     }
     
