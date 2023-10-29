@@ -50,7 +50,6 @@ struct LinkView: View {
                         .imageScale(.large)
                         .fontDesign(.rounded)
                         .opacity(0.5)
-                        .background(Color.red)
                 }
             }
             VStack {

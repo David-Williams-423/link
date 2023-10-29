@@ -117,6 +117,7 @@ struct FriendsView: View {
         }
         .onAppear {
             vm.getAllUsers()
+            
         }
     }
 }
