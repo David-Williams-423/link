@@ -23,6 +23,7 @@ struct ContentView: View {
                 FriendsView(currentScreen: $currentScreen, userID: $id)
             }
         }
+        
     }
 }
 

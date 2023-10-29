@@ -11,6 +11,7 @@ struct FriendsView: View {
     @Binding var currentScreen: Screen
     @Binding var userID: String
     @StateObject var vm = FriendsViewModel()
+    @State private var isFriendRequestsViewPresented: Bool = false
     var body: some View {
         VStack {
             HStack {
@@ -21,8 +22,9 @@ struct FriendsView: View {
                 
                 Spacer()
                 
+                
                 Button {
-                    
+                    isFriendRequestsViewPresented = true
                 } label: {
                     Image(systemName: "tray.and.arrow.down.fill")
                         .foregroundColor(.black)
@@ -41,7 +43,7 @@ struct FriendsView: View {
                     .onChange(of: vm.searchTerm) { newValue in
                         vm.searchFriends(searchTerm: newValue)
                     }
-
+                
                 Button(action: {
                     vm.searchTerm = ""
                     vm.searchResults = [] // Clear search results
@@ -96,6 +98,12 @@ struct FriendsView: View {
             .padding(.horizontal, 20)
         }
         .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $isFriendRequestsViewPresented) {
+            FriendRequestsView()
+        }
+        .onAppear {
+            vm.getAllUsers()
+        }
     }
 }
 

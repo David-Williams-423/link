@@ -23,9 +23,8 @@ struct User: Identifiable, Codable {
         self.profilePictureURL = profilePictureURL
     }
 
-    init?(documentData: [String: Any]) {
-        guard let id = documentData["id"] as? String,
-              let firstName = documentData["firstName"] as? String,
+    init?(id: String, documentData: [String: Any]) {
+        guard let firstName = documentData["firstName"] as? String,
               let lastName = documentData["lastName"] as? String,
               let email = documentData["email"] as? String else {
             return nil

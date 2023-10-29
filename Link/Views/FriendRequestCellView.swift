@@ -8,58 +8,89 @@
 import SwiftUI
 
 struct FriendRequestCellView: View {
-    var requesterName: String
-    @State private var requestAccepted: Bool = false
+    @ObservedObject var viewModel: FriendRequestCellViewModel
 
     var body: some View {
-        HStack {
-            Image("profile_placeholder") // Placeholder for the user's profile image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+        HStack(spacing: 15) {
+            // Display profile picture
+            if let urlString = viewModel.requester?.profilePictureURL, let url = URL(string: urlString) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    case .failure:
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .scaledToFill()
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
-                .padding(.leading, 10)
+            } else {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
+            }
 
-            Text(requesterName)
-                .font(.headline)
-                .padding(.leading, 10)
+            VStack(alignment: .leading) {
+                Text(viewModel.requester?.firstName ?? "Unknown")
+                    .font(.headline)
+                Text("Wants to be your friend")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
 
             Spacer()
 
-            if requestAccepted {
-                Text("Accepted")
-                    .foregroundColor(.green)
-                    .padding(.trailing, 10)
-            } else {
+            // Action buttons
+            if viewModel.friendRequest.status == .pending {
                 Button(action: {
-                    requestAccepted = true
+                    Task {
+                        await viewModel.acceptRequest()
+                    }
                 }) {
-                    Text("Accept")
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
+                    Image(systemName: "checkmark")
+                        .frame(width: 40, height: 40)
+//                        .padding(.horizontal, 10)
+//                        .padding(.vertical, 5)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(7)
                 }
-                .padding(.trailing, 10)
+
+                Button(action: {
+                    Task {
+                        await viewModel.declineRequest()
+                    }
+                }) {
+                    Image(systemName: "multiply")
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Color.red)
+                        
+                        .cornerRadius(7)
+                }
+            } else if viewModel.friendRequest.status == .accepted {
+                Text("Accepted")
+                    .foregroundColor(.green)
+            } else {
+                Text("Declined")
+                    .foregroundColor(.red)
             }
         }
-        .frame(height: 70)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
+        .padding(.vertical, 10)
     }
 }
-
-struct FriendRequestCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendRequestCellView(requesterName: "John Doe")
-            .previewLayout(.sizeThatFits)
-            .padding()
-    }
-}
-
 
 #Preview {
-    FriendRequestCellView(requesterName: "David")
+    FriendRequestCellView(viewModel: .init(friendRequest: FriendRequest(fromUserID: "gEpmphA60sgjwcZpsdXwzdeQjTP2", toUserID: "SqktneOzV3OSMJUtWwDuECdwDBF3")))
 }

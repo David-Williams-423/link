@@ -25,6 +25,9 @@
 		387104E32AEDFD7500EF9457 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 387104E22AEDFD7500EF9457 /* FirebaseAuth */; };
 		387104E52AEE003D00EF9457 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 387104E42AEE003D00EF9457 /* GoogleService-Info.plist */; };
 		387104E72AEE31DD00EF9457 /* FriendRequestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387104E62AEE31DD00EF9457 /* FriendRequestCellView.swift */; };
+		387104EA2AEE340800EF9457 /* FriendRequestsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387104E92AEE340800EF9457 /* FriendRequestsCellViewModel.swift */; };
+		387104EC2AEE386000EF9457 /* FriendRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387104EB2AEE386000EF9457 /* FriendRequestsViewModel.swift */; };
+		387104EE2AEE387C00EF9457 /* FriendRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387104ED2AEE387C00EF9457 /* FriendRequestsView.swift */; };
 		38F6521B2AED773300349F5A /* LinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6521A2AED773300349F5A /* LinkApp.swift */; };
 		38F6521D2AED773300349F5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6521C2AED773300349F5A /* ContentView.swift */; };
 		38F6521F2AED773500349F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F6521E2AED773500349F5A /* Assets.xcassets */; };
@@ -33,8 +36,6 @@
 		54E5107C2AEDE18400DA3D7E /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E5107B2AEDE18400DA3D7E /* LinkView.swift */; };
 		54E5107E2AEDE55500DA3D7E /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E5107D2AEDE55500DA3D7E /* FriendsView.swift */; };
 		D15CC3E72AEDBDBD000B7E9F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */; };
-		D15CC3E92AEDC74C000B7E9F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15CC3E82AEDC74C000B7E9F /* LoginView.swift */; };
-		D15CC3FD2AEE013A000B7E9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D15CC3FC2AEE013A000B7E9F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,9 @@
 		3871049E2AEDF6CF00EF9457 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		387104E42AEE003D00EF9457 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		387104E62AEE31DD00EF9457 /* FriendRequestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCellView.swift; sourceTree = "<group>"; };
+		387104E92AEE340800EF9457 /* FriendRequestsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsCellViewModel.swift; sourceTree = "<group>"; };
+		387104EB2AEE386000EF9457 /* FriendRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewModel.swift; sourceTree = "<group>"; };
+		387104ED2AEE387C00EF9457 /* FriendRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsView.swift; sourceTree = "<group>"; };
 		38F652172AED773300349F5A /* Link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Link.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F6521A2AED773300349F5A /* LinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkApp.swift; sourceTree = "<group>"; };
 		38F6521C2AED773300349F5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,7 +61,6 @@
 		54E5107B2AEDE18400DA3D7E /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		54E5107D2AEDE55500DA3D7E /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		D15CC3FC2AEE013A000B7E9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 				387104E62AEE31DD00EF9457 /* FriendRequestCellView.swift */,
 				163365722AEE1EE60097B4BE /* OpenView.swift */,
 				163365742AEE1F0E0097B4BE /* RegisterView.swift */,
+				387104ED2AEE387C00EF9457 /* FriendRequestsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +129,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		387104E82AEE33EA00EF9457 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				387104E92AEE340800EF9457 /* FriendRequestsCellViewModel.swift */,
+				387104EB2AEE386000EF9457 /* FriendRequestsViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		38F6520E2AED773300349F5A = {
@@ -151,7 +164,7 @@
 				D15CC3FE2AEE01A0000B7E9F /* Info.plist */,
 				387104E42AEE003D00EF9457 /* GoogleService-Info.plist */,
 				38F6521A2AED773300349F5A /* LinkApp.swift */,
-				D15CC3FC2AEE013A000B7E9F /* GoogleService-Info.plist */,
+				387104E82AEE33EA00EF9457 /* View Models */,
 				387104C62AEDF8A200EF9457 /* Views */,
 				387104C52AEDF88000EF9457 /* Models */,
 				387104C32AEDF86D00EF9457 /* Services */,
@@ -270,10 +283,13 @@
 				54E5107E2AEDE55500DA3D7E /* FriendsView.swift in Sources */,
 				38F6521D2AED773300349F5A /* ContentView.swift in Sources */,
 				38F6521B2AED773300349F5A /* LinkApp.swift in Sources */,
+				387104EC2AEE386000EF9457 /* FriendRequestsViewModel.swift in Sources */,
 				16F44C2F2AED8C62005F5FF7 /* MPCSession.swift in Sources */,
+				387104EA2AEE340800EF9457 /* FriendRequestsCellViewModel.swift in Sources */,
 				387104E72AEE31DD00EF9457 /* FriendRequestCellView.swift in Sources */,
 				387104A12AEDF6CF00EF9457 /* User.swift in Sources */,
 				D15CC3E72AEDBDBD000B7E9F /* TabBarView.swift in Sources */,
+				387104EE2AEE387C00EF9457 /* FriendRequestsView.swift in Sources */,
 				3871049F2AEDF6CF00EF9457 /* FireBaseService.swift in Sources */,
 				54B08B662AEE10BC0078992C /* FriendsViewModel.swift in Sources */,
 				16F44C312AED8EBF005F5FF7 /* MathUtilities.swift in Sources */,
@@ -410,7 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Link/Preview Content\"";
-				DEVELOPMENT_TEAM = QTC67KBQL9;
+				DEVELOPMENT_TEAM = CS7P9L74D4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Link/Info.plist;
@@ -426,7 +442,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LaurenFerlito.Link;
+				PRODUCT_BUNDLE_IDENTIFIER = DavidWilliams.Link;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -442,7 +458,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Link/Preview Content\"";
-				DEVELOPMENT_TEAM = QTC67KBQL9;
+				DEVELOPMENT_TEAM = CS7P9L74D4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Link/Info.plist;
@@ -458,7 +474,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LaurenFerlito.Link;
+				PRODUCT_BUNDLE_IDENTIFIER = DavidWilliams.Link;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

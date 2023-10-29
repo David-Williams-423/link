@@ -136,7 +136,6 @@ struct LinkView: View {
             vm.startup()
             vm.mpc?.setUserIdToLinkWith(id: friendID)
         }
-        .padding()
     }
 }
 

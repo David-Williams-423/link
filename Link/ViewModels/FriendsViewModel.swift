@@ -16,9 +16,7 @@ class FriendsViewModel: ObservableObject {
     @Published var searchResults: [User] = []
     
     init() {
-//        self.friendsList = User.dummyUsers
-        getAllFriends()
-        getFriendRequests()
+        getAllUsers()
     }
     
     private func setFriendsList(friends: [User]) {
@@ -32,6 +30,16 @@ extension FriendsViewModel {
         Task {
             do {
                 self.friendsList = try await service.getAllFriends(forUserID: (service.currentUser?.id)!)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func getAllUsers() {
+        Task {
+            do {
+                self.friendsList = try await service.getAllUsers()
             } catch {
                 print(error)
             }
