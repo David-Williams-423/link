@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FriendsView: View {
     @Binding var currentScreen: Screen
+    @Binding var userID: String
     @StateObject var vm = FriendsViewModel()
     var body: some View {
         VStack {
@@ -61,6 +62,7 @@ struct FriendsView: View {
                             .cornerRadius(8)
                             .onTapGesture {
                                 withAnimation {
+                                    userID = friend.id
                                     currentScreen = .link
                                 }
                             }
