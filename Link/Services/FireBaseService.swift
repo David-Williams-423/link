@@ -6,9 +6,9 @@
 //
 
 import Firebase
+import FirebaseAuth
 import FirebaseFirestoreSwift
 import FirebaseStorage
-import FirebaseAuth
 import Foundation
 
 class FireBaseService {
@@ -97,21 +97,20 @@ class FireBaseService {
         self.currentUser = User(id: snapshot.documentID, documentData: data)
     }
 
-    
     // MARK: - Friends
 
     func searchUsersByFirstName(searchTerm: String) async throws -> [User] {
         let snapshot = try await db.collection("users").getDocuments()
         let users = snapshot.documents.compactMap { document -> User? in
             let user = try? document.data(as: User.self)
-            if user?.firstName.lowercased() == searchTerm.lowercased() {
+            if user?.firstName.lowercased().hasPrefix(searchTerm.lowercased()) == true {
                 return user
             }
             return nil
         }
         return users
     }
-    
+
     func sendFriendRequest(fromUserID: String, toUserID: String) {
         let requestData = [
             "fromUserID": fromUserID,
@@ -176,5 +175,14 @@ class FireBaseService {
     
     func updateUserStatus(userID: String, to status: UserStatus) async throws {
         try await self.db.collection("users").document(userID).updateData(["status": status.rawValue])
+    }
+    
+    func getAllUsers() async throws -> [User] {
+        let snapshot = try await db.collection("users").getDocuments()
+        let users = snapshot.documents.compactMap { document -> User? in
+            let user = try? document.data(as: User.self)
+            return user
+        }
+        return users
     }
 }

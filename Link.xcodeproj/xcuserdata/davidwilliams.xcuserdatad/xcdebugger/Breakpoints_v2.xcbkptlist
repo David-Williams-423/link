@@ -164,7 +164,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Link/View Models/FriendRequestsViewModel.swift"
@@ -248,8 +248,8 @@
             filePath = "Link/Views/FriendsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -298,6 +298,100 @@
                   startingLineNumber = "97"
                   endingLineNumber = "97"
                   offsetFromSymbolStart = "404">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE8C013C-7E2F-46D2-9557-D5D209602BF5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Link/Views/FriendsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Link/ViewModels/FriendsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "searchFriends(searchTerm:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 84be46c1baa6647a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 8ab5cafb41862717"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 6d84ed076148a078"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "DBA6B607-A729-4D5D-A061-FC4829CC6E7E - 597fdfe64a600279"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendsViewModel.searchFriends(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/ViewModels/FriendsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "68">
                </Location>
             </Locations>
          </BreakpointContent>

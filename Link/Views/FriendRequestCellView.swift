@@ -58,9 +58,10 @@ struct FriendRequestCellView: View {
                         await viewModel.acceptRequest()
                     }
                 }) {
-                    Text("Accept")
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
+                    Image(systemName: "checkmark")
+                        .frame(width: 40, height: 40)
+//                        .padding(.horizontal, 10)
+//                        .padding(.vertical, 5)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(7)
@@ -71,11 +72,11 @@ struct FriendRequestCellView: View {
                         await viewModel.declineRequest()
                     }
                 }) {
-                    Text("Decline")
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .background(Color.red)
+                    Image(systemName: "multiply")
                         .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Color.red)
+                        
                         .cornerRadius(7)
                 }
             } else if viewModel.friendRequest.status == .accepted {
