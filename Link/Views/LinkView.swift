@@ -33,59 +33,67 @@ struct LinkView: View {
 
     var body: some View {
         ZStack {
+            // make 5 ft instead - small number for testing
+
             ColorBackground(color: backgroundColor)
                 .animation(.easeInOut, value: backgroundColor)
-            if vm.inSession {
-                finder
-            }
-        }
-    }
 
-    var finder: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Linking with")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                    Text(vm.peerDisplayName ?? "No one found yet")
-                        .font(.title)
+            VStack {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Linking with")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                        Text(vm.peerDisplayName ?? "No one found yet")
+                            .font(.title)
+                    }
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            currentScreen = .friends
+                        }
+                    } label: {
+                        Image(systemName: "x.circle.fill")
+                    }
+                    .buttonStyle(.plain)
                 }
+
+                Text("\(vm.feetString ?? "0") ft away")
+                    .font(.title)
+                    .padding(50)
                 Spacer()
+                // Arrow animation
+                ZStack {
+                    Image(systemName: "arrow.up")
+                        .resizable()
+                        .rotationEffect(.degrees(Double(vm.rotationAmount ?? 0)))
+                        .scaledToFit()
+                        .padding()
+                        .frame(width: 150)
+                        .scaleEffect(notClose ? 1 : 0)
+                        .opacity(notClose ? 1 : 0)
+                        .animation(.easeInOut, value: notClose)
+                        .animation(.easeInOut, value: vm.rotationAmount)
+
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .foregroundStyle(.regularMaterial)
+                        .shadow(radius: 10)
+                        .padding()
+                        .scaledToFit()
+                        .frame(width: 250)
+                        .scaleEffect(circleScale)
+                        .animation(.easeInOut, value: circleScale)
+                }
+
+                Spacer()
+                StatusIndicator(isConnected: vm.inSession)
+                Spacer()
+                Text("Status: \(vm.informationLabel)")
             }
-
-            Text("\(vm.feetString ?? "0") ft away")
-                .font(.title)
-                .padding(50)
-            Spacer()
-            // Arrow animation
-            ZStack {
-                Image(systemName: "arrow.up")
-                    .resizable()
-                    .rotationEffect(.degrees(Double(vm.rotationAmount ?? 0)))
-                    .scaledToFit()
-                    .padding()
-                    .frame(width: 150)
-                    .scaleEffect(notClose ? 1 : 0)
-                    .opacity(notClose ? 1 : 0)
-                    .animation(.easeInOut, value: notClose)
-                    .animation(.easeInOut, value: vm.rotationAmount)
-
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .foregroundStyle(.regularMaterial)
-                    .shadow(radius: 10)
-                    .padding()
-                    .scaledToFit()
-                    .frame(width: 250)
-                    .scaleEffect(circleScale)
-                    .animation(.easeInOut, value: circleScale)
-            }
-
-            Spacer()
-            StatusIndicator(isConnected: vm.inSession)
+            .padding()
+//            TabBarView(selectedTab: $selectedTab)
         }
-        .padding()
     }
 }
 
@@ -116,8 +124,7 @@ struct ColorBackground: View {
     var color: Color
 
     var body: some View {
-        LinearGradient(colors: [color.opacity(0.2), color], startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+        color.ignoresSafeArea()
     }
 }
 

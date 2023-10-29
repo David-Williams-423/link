@@ -13,14 +13,17 @@ struct RegisterView: View {
     @State private var lastName = ""
     @State private var email = ""
     @State private var password = ""
-    @State private var selectedImage: Image? = nil
+    @State private var selectedImage: UIImage? = nil
     @State private var isImagePickerPresented = false
+    @State private var navigateToNextScreen = false
+    var service = FireBaseService()
 
     var body: some View {
         NavigationView {
             VStack {
                 Text("Create Account")
                     .font(.title)
+                    .fontDesign(.rounded)
                 TextField("First Name", text: $firstName)
                     .padding(.leading)
                 Divider()
@@ -53,42 +56,53 @@ struct RegisterView: View {
                     Spacer()
                 }
                 .padding(.leading)
-                if let image = selectedImage {
-                    image
-                        .resizable()
-                        .cornerRadius(8.0)
-                        .frame(width: 100, height: 100)
-                        .scaledToFit()
-                } else {
-                    Text("")
-                }
+//                if let image = selectedImage {
+//                    image
+//                        .resizable()
+//                        .cornerRadius(8.0)
+//                        .frame(width: 100, height: 100)
+////                        .scaledToFit()
+//                } else {
+//                    Text("")
+//                }
                 HStack {
                     Spacer()
                     NavigationLink(
                         destination: ContentView().navigationBarBackButtonHidden(true),
+                        isActive: $navigateToNextScreen,
                         label: {
-                            //                        Button(action: {
-                            //                            // save stuff later
-                            //
-                            //                        }) {
-                            Text("Sign Up")
-                                .font(.footnote)
-                                .foregroundColor(.black)
-                                .padding(.top, 7)
-                                .padding(.bottom, 7)
-                                .padding(.trailing, 10)
-                                .padding(.leading, 10)
-                                .background(.thinMaterial)
-                                .cornerRadius(10)
+                            EmptyView()
                         }
-                        //                    }
                     )
+                    .buttonStyle(.plain)
                     .padding()
-
+                    Button(action: {
+                        Task {
+                            do {
+                                try await service.createUser(withEmail: email, password: password, firstName: firstName, lastName: lastName, profileImageData: selectedImage)
+                                navigateToNextScreen = true
+                                print("creating user worked")
+                                await print(service.currentUser)
+                            } catch {
+                                print("Error: \(error)")
+                            }
+                        }
+                    }) {
+                        Text("Sign Up")
+                            .font(.footnote)
+                            .foregroundColor(.black)
+                            .padding(.top, 7)
+                            .padding(.bottom, 7)
+                            .padding(.trailing, 10)
+                            .padding(.leading, 10)
+                            .background(.thinMaterial)
+                            .cornerRadius(10)
+                    }
+                    .padding()
                 }
             }
             .sheet(isPresented: $isImagePickerPresented) {
-                ImagePicker(image: $selectedImage)
+//                ImagePicker(image: $selectedImage)
             }
         }
         .navigationBarBackButtonHidden(true)
