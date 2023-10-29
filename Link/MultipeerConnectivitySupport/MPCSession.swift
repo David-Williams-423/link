@@ -159,6 +159,8 @@ class MPCSession: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         }
         if identityValue == identityString && id == userIdToLinkWith && mcSession.connectedPeers.count < maxNumPeers {
             browser.invitePeer(peerID, to: mcSession, withContext: nil, timeout: 10)
+            print("Inviting user with id \(id)")
+            print("user id to link: \(userIdToLinkWith)")
         }
     }
 
