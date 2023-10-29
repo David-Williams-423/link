@@ -220,9 +220,9 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         if mpc == nil {
             // Prevent Simulator from finding devices.
             #if targetEnvironment(simulator)
-            mpc = MPCSession(service: "nisample", identity: "com.example.apple-samplecode.simulator.peekaboo-nearbyinteraction", maxPeers: 1)
+            mpc = MPCSession(service: "nisample", identity: "hacknc.link.simulator", maxPeers: 1)
             #else
-            mpc = MPCSession(service: "nisample", identity: "com.example.apple-samplecode.peekaboo-nearbyinteraction", maxPeers: 1)
+            mpc = MPCSession(service: "nisample", identity: "hacknc.link", maxPeers: 1)
             #endif
             mpc?.peerConnectedHandler = connectedToPeer
             mpc?.peerDataHandler = dataReceivedHandler
@@ -319,19 +319,6 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         let azimuth = peer.direction.map(azimuth(from:))
         let elevation = peer.direction.map(elevation(from:))
 
-        
-        // Set the app's display based on peer state.
-//        switch nextState {
-//        case .closeUpInFOV:
-//            monkeyLabel = "🙉"
-//        case .notCloseUpInFOV:
-//            monkeyLabel = "🙈"
-//        case .outOfFOV:
-//            monkeyLabel = "🙊"
-//        case .unknown:
-//            monkeyLabel = ""
-//        }
-        
         switch nextState {
         case .closeUpInFOV:
             monkeyLabel = "arrow.up"
