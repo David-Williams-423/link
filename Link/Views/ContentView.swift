@@ -13,17 +13,15 @@ enum Screen {
 struct ContentView: View {
     @State var currentScreen: Screen = .friends
     @StateObject var LinkVM = NIService()
+    @State var id: String = ""
     var body: some View {
         VStack {
             switch currentScreen {
             case .link:
-                LinkView(currentScreen: $currentScreen, vm: LinkVM)
+                LinkView(currentScreen: $currentScreen, friendID: id)
             case .friends:
-                FriendsView(currentScreen: $currentScreen)
+                FriendsView(currentScreen: $currentScreen, userID: $id)
             }
-        }
-        .onAppear() {
-            LinkVM.startup()
         }
     }
 }

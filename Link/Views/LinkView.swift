@@ -10,7 +10,8 @@ import SwiftUI
 
 struct LinkView: View {
     @Binding var currentScreen: Screen
-    @StateObject var vm: NIService
+    @State var friendID: String
+    @StateObject var vm: NIService = NIService()
 
     var notClose: Bool {
         guard let feet = vm.feetAway else { return true }
@@ -28,30 +29,28 @@ struct LinkView: View {
     }
 
     var backgroundColor: Color {
-        return notClose ? .gray : .green
+        return notClose ? .white.opacity(0) : .green
     }
-
-    var body: some View {
-        ZStack {
-            ColorBackground(color: backgroundColor)
-                .animation(.easeInOut, value: backgroundColor)
-            if vm.inSession {
-                finder
-            }
-        }
-    }
-
-    var finder: some View {
+    
+    var linkingInfo: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Linking with")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
                     Text(vm.peerDisplayName ?? "No one found yet")
                         .font(.title)
                 }
                 Spacer()
+                Button {
+                    withAnimation {
+                        currentScreen = .friends
+                    }
+                } label: {
+                    Image(systemName: "x.circle.fill")
+                        .imageScale(.large)
+                        .fontDesign(.rounded)
+                        .opacity(0.5)
+                }
+                .buttonStyle(.plain)
             }
 
             Text("\(vm.feetString ?? "0") ft away")
@@ -84,6 +83,58 @@ struct LinkView: View {
 
             Spacer()
             StatusIndicator(isConnected: vm.inSession)
+            Spacer()
+        }
+        .padding()
+    }
+    
+    var loading: some View {
+        ZStack {
+            VStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            currentScreen = .friends
+                        }
+                    } label: {
+                        Image(systemName: "x.circle.fill")
+                            .imageScale(.large)
+                            .fontDesign(.rounded)
+                            .opacity(0.5)
+                    }
+                    .buttonStyle(.plain)
+                }
+                Spacer()
+            }
+            VStack {
+                Text("Looking for link...")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+                    .padding(.bottom)
+                ProgressView()
+                    .controlSize(.extraLarge)
+            }
+        }
+    }
+    var body: some View {
+        ZStack {
+            // make 5 ft instead - small number for testing
+
+            ColorBackground(color: backgroundColor)
+                .animation(.easeInOut, value: backgroundColor)
+            
+            if vm.sharedTokenWithPeer {
+                linkingInfo
+            } else {
+                loading
+            }
+            
+            }
+        .onAppear {
+            vm.startup()
+            vm.mpc?.setUserIdToLinkWith(id: friendID)
         }
         .padding()
     }
@@ -116,11 +167,10 @@ struct ColorBackground: View {
     var color: Color
 
     var body: some View {
-        LinearGradient(colors: [color.opacity(0.2), color], startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+        color.ignoresSafeArea()
     }
 }
 
 #Preview {
-    LinkView(currentScreen: .constant(.link), vm: .init())
+    LinkView(currentScreen: .constant(.link), friendID: "")
 }

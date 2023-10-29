@@ -10,7 +10,6 @@ import SwiftUI
 enum Tabs: Int {
     case link = 0
     case friends = 1
-    case settings = 2
 }
 
 struct TabBarView: View {
@@ -35,12 +34,6 @@ struct TabBarView: View {
                         .foregroundColor(selectedTab == .link ? .white : .black)
                 }
                 Spacer()
-                Button(action: {
-                    selectedTab = .settings
-                }) {
-                    Image(systemName: "gear")
-                        .foregroundColor(selectedTab == .settings ? .white : .black)
-                }
                 Spacer()
             }
             .padding()
