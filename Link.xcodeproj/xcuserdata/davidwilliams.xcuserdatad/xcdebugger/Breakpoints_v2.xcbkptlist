@@ -14,8 +14,8 @@
             filePath = "Link/View Models/FriendRequestsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "fetchFriendRequests()"
             landmarkType = "7">
             <Locations>
@@ -170,43 +170,13 @@
             filePath = "Link/View Models/FriendRequestsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "fetchFriendRequests()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - 2e329916b714b147"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendRequestsViewModel.fetchFriendRequests() -&gt; ()"
-                  moduleName = "Link"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/View%20Models/FriendRequestsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - d3cce533ae9c7fde"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendRequestsViewModel.fetchFriendRequests() -&gt; ()"
-                  moduleName = "Link"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/View%20Models/FriendRequestsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - 63cb87264491fc45"
+                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - 63cb87264491fc66"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -216,8 +186,53 @@
                   urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/View%20Models/FriendRequestsViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - 2e329916b714b164"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendRequestsViewModel.fetchFriendRequests() -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/View%20Models/FriendRequestsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - d3cce533ae9c7ffd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendRequestsViewModel.fetchFriendRequests() -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/View%20Models/FriendRequestsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "CC6C5994-9630-4C4C-A49D-C46A43EC5A5E - 63cb87264491fc66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Link.FriendRequestsViewModel.fetchFriendRequests() -&gt; ()"
+                  moduleName = "Link"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidwilliams/Desktop/Personal/Coding%20Projects/iOS%20Development/link/Link/View%20Models/FriendRequestsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
                   offsetFromSymbolStart = "72">
                </Location>
             </Locations>

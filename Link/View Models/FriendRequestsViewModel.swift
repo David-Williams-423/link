@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class FriendRequestsViewModel: ObservableObject {
     @Published var friendRequests: [FriendRequest] = []
     private var firebaseService = FireBaseService.shared
