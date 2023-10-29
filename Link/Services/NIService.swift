@@ -296,19 +296,6 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         let azimuth = peer.direction.map(azimuth(from:))
         let elevation = peer.direction.map(elevation(from:))
 
-        
-        // Set the app's display based on peer state.
-//        switch nextState {
-//        case .closeUpInFOV:
-//            monkeyLabel = "🙉"
-//        case .notCloseUpInFOV:
-//            monkeyLabel = "🙈"
-//        case .outOfFOV:
-//            monkeyLabel = "🙊"
-//        case .unknown:
-//            monkeyLabel = ""
-//        }
-        
         switch nextState {
         case .closeUpInFOV:
             monkeyLabel = "arrow.down.to.line"
