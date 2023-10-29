@@ -161,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				54B08B642AEE10AD0078992C /* ViewModels */,
-				D15CC3FE2AEE01A0000B7E9F /* Info.plist */,
 				387104E42AEE003D00EF9457 /* GoogleService-Info.plist */,
 				38F6521A2AED773300349F5A /* LinkApp.swift */,
 				387104E82AEE33EA00EF9457 /* View Models */,
@@ -426,7 +425,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Link/Preview Content\"";
-				DEVELOPMENT_TEAM = CS7P9L74D4;
+				DEVELOPMENT_TEAM = 49D4NATQYC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Link/Info.plist;
@@ -442,7 +441,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DavidWilliams.Link;
+				PRODUCT_BUNDLE_IDENTIFIER = DavidWilliam.Link;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -458,7 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Link/Preview Content\"";
-				DEVELOPMENT_TEAM = CS7P9L74D4;
+				DEVELOPMENT_TEAM = 49D4NATQYC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Link/Info.plist;
@@ -474,7 +473,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DavidWilliams.Link;
+				PRODUCT_BUNDLE_IDENTIFIER = DavidWilliam.Link;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

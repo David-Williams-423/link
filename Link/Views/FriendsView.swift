@@ -96,6 +96,20 @@ struct FriendsView: View {
             }
             .cornerRadius(15)
             .padding(.horizontal, 20)
+            
+            Button(action: {
+                vm.getAllUsers()
+            }) {
+                Text("Refresh")
+                    .foregroundColor(.white)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(Color.green)
+                    .cornerRadius(8)
+            }
+            .padding(.vertical, 10)
         }
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $isFriendRequestsViewPresented) {
