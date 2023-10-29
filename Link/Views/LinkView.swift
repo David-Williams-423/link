@@ -25,7 +25,7 @@ struct LinkView: View {
         if notClose {
             return 0.0
         }
-        return CGFloat(feet * 2 + 0.5)
+        return CGFloat(feet/10 * 2 + 0.5)
     }
 
     var backgroundColor: Color {
@@ -46,16 +46,23 @@ struct LinkView: View {
                     }
                 } label: {
                     Image(systemName: "x.circle.fill")
+                        .foregroundStyle(.gray)
                         .imageScale(.large)
                         .fontDesign(.rounded)
                         .opacity(0.5)
+                        .background(Color.red)
                 }
-                .buttonStyle(.plain)
             }
-
-            Text("\(vm.feetString ?? "0") ft away")
-                .font(.title)
-                .padding(50)
+            VStack {
+                Text("\(vm.feetString ?? "0") ft away")
+                    .font(.title)
+                if (vm.currentDistanceDirectionState == NIService.DistanceDirectionState.outOfFOV) {
+                    Text ("Turn Around")
+                }
+            }
+            .padding(50)
+                
+            
             Spacer()
             // Arrow animation
             ZStack {
@@ -80,6 +87,9 @@ struct LinkView: View {
                     .scaleEffect(circleScale)
                     .animation(.easeInOut, value: circleScale)
             }
+//            if (vm.currentDistanceDirectionState == NIService.DistanceDirectionState.outOfFOV) {
+//                Text ("Turn Around")
+//            }
 
             Spacer()
             StatusIndicator(isConnected: vm.inSession)
@@ -102,6 +112,7 @@ struct LinkView: View {
                             .imageScale(.large)
                             .fontDesign(.rounded)
                             .opacity(0.5)
+                            .padding()
                     }
                     .buttonStyle(.plain)
                 }
@@ -112,7 +123,7 @@ struct LinkView: View {
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .fontDesign(.rounded)
-                    .padding(.bottom)
+                    .padding()
                 ProgressView()
                     .controlSize(.extraLarge)
             }
