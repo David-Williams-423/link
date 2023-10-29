@@ -14,6 +14,8 @@
 		38F6521D2AED773300349F5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6521C2AED773300349F5A /* ContentView.swift */; };
 		38F6521F2AED773500349F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F6521E2AED773500349F5A /* Assets.xcassets */; };
 		38F652222AED773500349F5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F652212AED773500349F5A /* Preview Assets.xcassets */; };
+		54E5107C2AEDE18400DA3D7E /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E5107B2AEDE18400DA3D7E /* LinkView.swift */; };
+		54E5107E2AEDE55500DA3D7E /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E5107D2AEDE55500DA3D7E /* FriendsView.swift */; };
 		D15CC3E72AEDBDBD000B7E9F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */; };
 		D15CC3E92AEDC74C000B7E9F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15CC3E82AEDC74C000B7E9F /* LoginView.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,8 @@
 		38F6521C2AED773300349F5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38F6521E2AED773500349F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38F652212AED773500349F5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		54E5107B2AEDE18400DA3D7E /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		54E5107D2AEDE55500DA3D7E /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		D15CC3E82AEDC74C000B7E9F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,9 +76,11 @@
 				38F6521A2AED773300349F5A /* LinkApp.swift */,
 				D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */,
 				38F6521C2AED773300349F5A /* ContentView.swift */,
+				54E5107B2AEDE18400DA3D7E /* LinkView.swift */,
 				16F44C2B2AED8AA6005F5FF7 /* NIService.swift */,
 				16F44C302AED8EBF005F5FF7 /* MathUtilities.swift */,
 				D15CC3E82AEDC74C000B7E9F /* LoginView.swift */,
+				54E5107D2AEDE55500DA3D7E /* FriendsView.swift */,
 				16F44C2D2AED8C40005F5FF7 /* MultipeerConnectivitySupport */,
 				38F6521E2AED773500349F5A /* Assets.xcassets */,
 				38F652202AED773500349F5A /* Preview Content */,
@@ -162,6 +168,8 @@
 			files = (
 				16F44C2C2AED8AA6005F5FF7 /* NIService.swift in Sources */,
 				D15CC3E92AEDC74C000B7E9F /* LoginView.swift in Sources */,
+				54E5107C2AEDE18400DA3D7E /* LinkView.swift in Sources */,
+				54E5107E2AEDE55500DA3D7E /* FriendsView.swift in Sources */,
 				38F6521D2AED773300349F5A /* ContentView.swift in Sources */,
 				38F6521B2AED773300349F5A /* LinkApp.swift in Sources */,
 				16F44C2F2AED8C62005F5FF7 /* MPCSession.swift in Sources */,

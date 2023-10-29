@@ -11,7 +11,7 @@ import NearbyInteraction
 import Observation
 
 @Observable
-class NIService: NSObject, NISessionDelegate {
+class NIService: NSObject, NISessionDelegate, ObservableObject {
     let nearbyDistanceThreshold: Float = 0.3
 
     enum DistanceDirectionState {

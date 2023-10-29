@@ -7,31 +7,39 @@
 
 import SwiftUI
 
+enum Tabs: Int {
+    case link = 0
+    case friends = 1
+    case settings = 2
+}
+
 struct TabBarView: View {
+    @Binding var selectedTab: Tabs
+    
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Spacer()
                 Button(action: {
-                    //nothing
+                    selectedTab = .friends
                 }) {
                     Image(systemName: "heart")
-                        .foregroundColor(.black)
+                        .foregroundColor(selectedTab == .friends ? .white : .black)
                 }
                 Spacer()
                 Button(action: {
-                    //nothing
+                    selectedTab = .link
                 }) {
                     Image(systemName: "link")
-                        .foregroundColor(.black)
+                        .foregroundColor(selectedTab == .link ? .white : .black)
                 }
                 Spacer()
                 Button(action: {
-                    //nothing
+                    selectedTab = .settings
                 }) {
                     Image(systemName: "gear")
-                        .foregroundColor(.black)
+                        .foregroundColor(selectedTab == .settings ? .white : .black)
                 }
                 Spacer()
             }
@@ -43,6 +51,17 @@ struct TabBarView: View {
         .padding()
     }
 }
-#Preview {
-    TabBarView()
+
+struct TabViewButton: View {
+    var image: String
+//    var name: String
+    var isActive: Bool
+    var body: some View {
+        Image(systemName: image)
+            .foregroundColor(.black)
+    }
 }
+
+//#Preview {
+//    TabBarView()
+//}
