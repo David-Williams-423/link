@@ -130,8 +130,7 @@ struct ColorBackground: View {
     var color: Color
 
     var body: some View {
-        LinearGradient(colors: [color.opacity(0.2), color], startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+        color.ignoresSafeArea()
     }
 }
 
