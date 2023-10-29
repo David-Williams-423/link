@@ -311,11 +311,11 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
         
         switch nextState {
         case .closeUpInFOV:
-            monkeyLabel = "arrow.down.to.line"
+            monkeyLabel = "circle.fill"
         case .notCloseUpInFOV:
             monkeyLabel = "arrow.up"
         case .outOfFOV:
-            monkeyLabel = "arrow.up"
+            monkeyLabel = "arrow.down"
         case .unknown:
             monkeyLabel = "questionmark"
         }
