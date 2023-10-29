@@ -10,7 +10,8 @@ import SwiftUI
 
 struct LinkView: View {
     @Binding var currentScreen: Screen
-    @StateObject var vm: NIService
+    @State var friendID: String
+    @StateObject var vm: NIService = NIService()
 
     var notClose: Bool {
         guard let feet = vm.feetAway else { return true }
@@ -92,7 +93,10 @@ struct LinkView: View {
                 Text("Status: \(vm.informationLabel)")
             }
             .padding()
-//            TabBarView(selectedTab: $selectedTab)
+            .onAppear(){
+                vm.startup()
+                vm.mpc?.setUserIdToLinkWith(id: friendID)
+            }
         }
     }
 }
@@ -129,5 +133,5 @@ struct ColorBackground: View {
 }
 
 #Preview {
-    LinkView(currentScreen: .constant(.link), vm: .init())
+    LinkView(currentScreen: .constant(.link), friendID: "")
 }

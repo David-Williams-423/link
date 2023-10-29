@@ -7,14 +7,17 @@
 
 import Foundation
 
+@MainActor
 class FriendsViewModel: ObservableObject {
     private let service = FireBaseService()
     @Published var friendRequestList: [FriendRequest] = []
     @Published var friendsList: [User] = []
+    @Published var searchTerm: String = ""
+    @Published var searchResults: [User] = []
     
     init() {
         self.friendsList = User.dummyUsers
-//        setFriendsList(friends: getAllFriends())
+//        getAllFriends()
 //        getFriendRequests()
     }
     
@@ -24,16 +27,15 @@ class FriendsViewModel: ObservableObject {
 }
 
 extension FriendsViewModel {
-    private func getAllFriends() -> [User] {
-        var friends: [User] = []
+    func getAllFriends(){
+        
         Task {
             do {
-                let friends = try await service.getAllFriends(forUserID: (service.currentUser?.id)!)
+                self.friendsList = try await service.getAllFriends(forUserID: (service.currentUser?.id)!)
             } catch {
                 print(error)
             }
         }
-        return friends
     }
     
     func getFriendRequests() {
@@ -46,5 +48,13 @@ extension FriendsViewModel {
         }
     }
     
-    
+    func searchFriends(searchTerm: String) {
+        Task {
+            do {
+                self.searchResults = try await service.searchUsersByFirstName(searchTerm: searchTerm)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
