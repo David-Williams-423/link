@@ -9,7 +9,7 @@ import Observation
 import SwiftUI
 
 struct LinkView: View {
-    @Binding var selectedTab: Tabs
+    @Binding var currentScreen: Screen
     @StateObject var vm: NIService
 
     var notClose: Bool {
@@ -122,5 +122,5 @@ struct ColorBackground: View {
 }
 
 #Preview {
-    LinkView(selectedTab: .constant(Tabs.friends), vm: .init())
+    LinkView(currentScreen: .constant(.link), vm: .init())
 }

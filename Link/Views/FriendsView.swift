@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct FriendsView: View {
-    @Binding var selectedTab: Tabs
+    @Binding var currentScreen: Screen
     var body: some View {
         VStack {
             Text("FriendsView")
-            TabBarView(selectedTab: $selectedTab)
+                .onTapGesture {
+                    withAnimation {
+                        currentScreen = .link
+                    }
+                }
         }
     }
 }
@@ -22,7 +26,6 @@ struct SettingView: View {
     var body: some View {
         VStack {
             Text("Settings")
-            TabBarView(selectedTab: $selectedTab)
         }
     }
 }

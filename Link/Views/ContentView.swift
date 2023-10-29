@@ -7,19 +7,19 @@
 
 import SwiftUI
 import Observation
-
+enum Screen {
+    case friends, link
+}
 struct ContentView: View {
-    @State var selectedTab: Tabs = .link
+    @State var currentScreen: Screen = .friends
     @StateObject var LinkVM = NIService()
     var body: some View {
         VStack {
-            switch selectedTab {
+            switch currentScreen {
             case .link:
-                LinkView(selectedTab: $selectedTab, vm: LinkVM)
+                LinkView(currentScreen: $currentScreen, vm: LinkVM)
             case .friends:
-                FriendsView(selectedTab: $selectedTab)
-            case .settings:
-                SettingView(selectedTab: $selectedTab)
+                FriendsView(currentScreen: $currentScreen)
             }
         }
         .onAppear() {

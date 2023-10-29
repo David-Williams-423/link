@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163365732AEE1EE60097B4BE /* OpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163365722AEE1EE60097B4BE /* OpenView.swift */; };
+		163365752AEE1F0E0097B4BE /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163365742AEE1F0E0097B4BE /* RegisterView.swift */; };
 		16F44C2C2AED8AA6005F5FF7 /* NIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F44C2B2AED8AA6005F5FF7 /* NIService.swift */; };
 		16F44C2F2AED8C62005F5FF7 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F44C2E2AED8C62005F5FF7 /* MPCSession.swift */; };
 		16F44C312AED8EBF005F5FF7 /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F44C302AED8EBF005F5FF7 /* MathUtilities.swift */; };
@@ -31,9 +33,12 @@
 		54E5107E2AEDE55500DA3D7E /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E5107D2AEDE55500DA3D7E /* FriendsView.swift */; };
 		D15CC3E72AEDBDBD000B7E9F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */; };
 		D15CC3E92AEDC74C000B7E9F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15CC3E82AEDC74C000B7E9F /* LoginView.swift */; };
+		D15CC3FD2AEE013A000B7E9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D15CC3FC2AEE013A000B7E9F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		163365722AEE1EE60097B4BE /* OpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenView.swift; sourceTree = "<group>"; };
+		163365742AEE1F0E0097B4BE /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		16F44C2B2AED8AA6005F5FF7 /* NIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIService.swift; sourceTree = "<group>"; };
 		16F44C2E2AED8C62005F5FF7 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
 		16F44C302AED8EBF005F5FF7 /* MathUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilities.swift; sourceTree = "<group>"; };
@@ -50,7 +55,6 @@
 		54E5107B2AEDE18400DA3D7E /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		54E5107D2AEDE55500DA3D7E /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		D15CC3E82AEDC74C000B7E9F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D15CC3FC2AEE013A000B7E9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,9 +110,10 @@
 				D15CC3E62AEDBDBD000B7E9F /* TabBarView.swift */,
 				38F6521C2AED773300349F5A /* ContentView.swift */,
 				54E5107B2AEDE18400DA3D7E /* LinkView.swift */,
-				D15CC3E82AEDC74C000B7E9F /* LoginView.swift */,
 				54E5107D2AEDE55500DA3D7E /* FriendsView.swift */,
 				387104E62AEE31DD00EF9457 /* FriendRequestCellView.swift */,
+				163365722AEE1EE60097B4BE /* OpenView.swift */,
+				163365742AEE1F0E0097B4BE /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,8 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F44C2C2AED8AA6005F5FF7 /* NIService.swift in Sources */,
-				D15CC3E92AEDC74C000B7E9F /* LoginView.swift in Sources */,
 				387104A02AEDF6CF00EF9457 /* FriendRequest.swift in Sources */,
+				163365752AEE1F0E0097B4BE /* RegisterView.swift in Sources */,
+				163365732AEE1EE60097B4BE /* OpenView.swift in Sources */,
 				54E5107C2AEDE18400DA3D7E /* LinkView.swift in Sources */,
 				54E5107E2AEDE55500DA3D7E /* FriendsView.swift in Sources */,
 				38F6521D2AED773300349F5A /* ContentView.swift in Sources */,

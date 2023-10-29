@@ -340,11 +340,10 @@ class NIService: NSObject, NISessionDelegate, ObservableObject {
     }
     
     func updateVisualization(from currentState: DistanceDirectionState, to nextState: DistanceDirectionState, with peer: NINearbyObject) {
-        // Invoke haptics on "peekaboo" or on the first measurement.
-        if currentState == .notCloseUpInFOV && nextState == .closeUpInFOV || currentState == .unknown {
+        // Invoke haptics when person is in FOV
+        if currentState == .outOfFOV && (nextState == .closeUpInFOV || nextState == .notCloseUpInFOV)  {
             impactGenerator.impactOccurred()
         }
-
         // Animate into the next visuals.
         
         UIView.animate(withDuration: 0.3, animations: {
