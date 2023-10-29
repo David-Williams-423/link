@@ -16,7 +16,7 @@ struct LinkView: View {
     var notClose: Bool {
         guard let feet = vm.feetAway else { return true }
 
-        return feet > 0.5
+        return feet > 5
     }
 
     var circleScale: CGFloat {
