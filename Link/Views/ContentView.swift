@@ -9,21 +9,22 @@ import SwiftUI
 import Observation
 
 struct ContentView: View {
-    @State var selectedTab: Tabs = .link
+    @State var selectedTab: Tabs = .friends
     @StateObject var LinkVM = NIService()
     var body: some View {
         VStack {
             switch selectedTab {
             case .link:
                 LinkView(selectedTab: $selectedTab, vm: LinkVM)
+                    .transition(.opacity)
+                    .onAppear() {
+                        LinkVM.startup()
+                        
+                    }
             case .friends:
                 FriendsView(selectedTab: $selectedTab)
-            case .settings:
-                SettingView(selectedTab: $selectedTab)
+                    .transition(.opacity)
             }
-        }
-        .onAppear() {
-            LinkVM.startup()
         }
     }
 }

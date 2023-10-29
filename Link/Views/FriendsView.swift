@@ -12,60 +12,68 @@ struct FriendsView: View {
     @StateObject var vm = FriendsViewModel()
     var body: some View {
         VStack {
-            Text("Friends!")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .fontWeight(.bold)
+            HStack {
+                Text("Link")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.bold)
+                    .padding(.leading, 20)
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "tray.and.arrow.down.fill")
+                        .foregroundColor(.black)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.trailing, 20)
+                }
+            }
+            .padding(.bottom, 20)
             
             Spacer()
-            
             ScrollView {
                 VStack {
                     ForEach(vm.friendsList) { friend in
                         VStack {
-                            HStack {
-                                Image(friend.profilePictureURL ?? "") //ask about profile pics
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 25, height: 25)
-                                    .clipShape(Circle())
+                            Button {
+                                selectedTab = .link
+                            } label: {
+                                HStack {
+                                    Image(friend.profilePictureURL ?? "") //ask about profile pics
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25, height: 25)
+                                        .clipShape(Circle())
+                                    
+                                    Text("\(friend.firstName) \(friend.lastName)")
+                                        .foregroundStyle(.black)
+                                        .font(.title2)
+                                        .padding(.leading, 10)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: friend.status == .online ? "wifi" : "wifi.slash")
+                                        .foregroundColor(friend.status == .online ? .green : .gray)
+                                        .font(.subheadline)
+                                        .padding(.trailing, 20)
+                                }
+                                .frame(minHeight: 75)
+                                .background(Color.white)
+                                .cornerRadius(8)
                                 
-                                Text("\(friend.firstName) \(friend.lastName)")
-                                    .font(.title2)
-                                    .padding(.leading, 10)
-                                
-                                Spacer()
-                                
-                                Image(systemName: friend.status == .online ? "wifi" : "wifi.slash")
-                                    .foregroundColor(friend.status == .online ? .green : .gray)
-                                    .font(.subheadline)
-                                    .padding(.trailing, 20)
+                                Divider()
                             }
-                            .frame(minHeight: 75)
-                            .background(Color.white)
-                            .cornerRadius(8)
-                            
-                            Divider()
                         }
                     }
                 }
             }
             .cornerRadius(15)
             .padding(.horizontal, 20)
-            
-            Button {
-                
-            } label: {
-                Text("Add Friend")
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .background(Color.green)
-                    .cornerRadius(8)
-            }
-            TabBarView(selectedTab: $selectedTab)
         }
+        .navigationBarBackButtonHidden(true)
     }
-    
 }
 
 struct SettingView: View {

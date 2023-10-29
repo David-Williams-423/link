@@ -10,7 +10,7 @@ import Observation
 
 struct LinkView: View {
     @Binding var selectedTab: Tabs
-    @StateObject var vm: NIService
+    @StateObject var vm = NIService()
     var body: some View {
         ZStack {
             // make 5 ft instead - small number for testing
@@ -30,7 +30,7 @@ struct LinkView: View {
                     }
                     Spacer()
                     Button {
-                        // nothing yet
+                        selectedTab = .friends
                     } label: {
                         Text("Cancel")
                             .font(.footnote)
@@ -51,7 +51,7 @@ struct LinkView: View {
                 Spacer()
             }
             .padding()
-            TabBarView(selectedTab: $selectedTab)
+//            TabBarView(selectedTab: $selectedTab)
         }
     }
     var grayBackground: some View {
