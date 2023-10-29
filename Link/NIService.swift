@@ -306,7 +306,7 @@ class NIService: NSObject, NISessionDelegate {
             monkeyLabel = ""
         }
         distanceAway = peer.distance
-        rotationAmount = azimuth
+        rotationAmount = azimuth?.radiansToDegrees
         // Don't update visuals if the peer device is unavailable or out of the
         // U1 chip's field of view.
         if nextState == .outOfFOV || nextState == .unknown {
